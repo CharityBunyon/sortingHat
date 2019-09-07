@@ -1,11 +1,12 @@
+//House Array
 const houseNames = ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'];
 
 
 
-
+//Print to Dom
 const printToDom = (divId, textToPrint) => {
     const selectedDiv = document.getElementById(divId);
-    selectedDiv.innerHTML = textToPrint;
+    selectedDiv.innerHTML += textToPrint;
 };
 
 
@@ -40,14 +41,15 @@ const createForm = () => {
         </div>
 
         <div class="form-group">
-        <label for="exampleInputPassword1">Student:</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Neville Longbottom">
+        <label for="exampleInputName">Student Name</label>
+        <input id= "studentName" type="studentName" class="form-control" placeholder="Neville Longbottom">
         </div>
         
-        <button id= "" type="submit" class="btn btn-primary">Sort!</button>
+        <button id= "sort" type="submit" class="btn btn-primary">Sort!</button>
         </form>
     `
-    printToDom('form', formContents)
+    printToDom('form', formContents);
+    randomize(); //called this function after making event button on form card to work
 };
 
 const formButton = (e) => {
@@ -58,14 +60,24 @@ formButton();
 
 //Create  Cards 
 
-const createCard = () => {
-    const cardContents = `
-    <div class="card" style="width: 18rem;">            
-    <div class="card-body">
-        <h5 class="card-title">Person Name</h5>
-        <p class="card-text">House Name</p>
-        <a id= "expel" href="#" class="btn btn-primary">Expel</a>
-    </div>
-    </div>
-    `
+const makeCard = (arr) => {
+    const startSorting = studentName.value;
+    let randomHouse = houseNames[Math.floor(Math.random() * houseNames.length)];
+    let cardPrint = `
+        <div class="card" style="width: 18rem;">            
+        <div class="card-body">
+            <h5 class="card-title">${startSorting}</h5>
+            <p class="card-text">${randomHouse}</p>
+            <a id= "expel" href="#" class="btn btn-primary">Expel</a>
+        </div>
+        </div>
+        `
+    printToDom('houses', cardPrint)
 };
+
+
+//event listener for form sort button
+
+const randomize = (e) => {
+    document.getElementById('sort').addEventListener('click', makeCard)
+}
