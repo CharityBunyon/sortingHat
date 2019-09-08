@@ -68,11 +68,12 @@ const makeCard = (arr) => {
         <div class="card-body">
             <h5 class="card-title">${startSorting}</h5>
             <p class="card-text">${randomHouse}</p>
-            <a id= "expel" href="#" class="btn btn-primary">Expel</a>
+            <button type= "submit" class= "expel">Expel</button>
         </div>
         </div>
         `
     printToDom('houses', cardPrint)
+    removeCard();
 };
 
 
@@ -81,3 +82,22 @@ const makeCard = (arr) => {
 const randomize = (e) => {
     document.getElementById('sort').addEventListener('click', makeCard)
 }
+
+
+const removeCard = () => {
+    const cardsToRemove = document.getElementsByClassName('expel');
+    for(let i = 0; i < cardsToRemove.length; i++) {
+        const deleteCard = cardsToRemove[i];
+        deleteCard.addEventListener('click', (e) =>{
+            const btnClicked = e.target;
+            const cardsToRemove = btnClicked.parentNode.parentNode;
+            cardsToRemove.remove();
+        })
+    }
+};
+
+//expel Student Event Listener
+const expelStudent = () => {
+    $(".expel").on('click', removeCard);
+}
+expelStudent();
