@@ -11,7 +11,6 @@ const printToDom = (divId, textToPrint) => {
 
 
 const createJumbo = () => {
-
     const jumboContents =
     `
         <div class="jumbotron">
@@ -27,8 +26,6 @@ const createJumbo = () => {
 };
 
 createJumbo();
-
-
 
 
 
@@ -57,6 +54,7 @@ document.getElementById('formAppear').addEventListener('click',createForm)
 };
 
 formButton();
+
 
 //Create  Cards 
 
