@@ -4,7 +4,7 @@
 Use this application to take a students name and put them in a Hogwarts class. The user also has the option of removing a student by hitting the expel button.
 
 ## Screenshots
-![Sorting HatPreview 1]()
+![Sorting HatPreview 1](https://raw.githubusercontent.com/CharityBunyon/sortingHat/master/screenshots/SS1.png)
 
 
 
